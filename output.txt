@@ -1,0 +1,1215 @@
+riscv64-unknown-elf-gcc    -c -o kernel/entry.o kernel/entry.S
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/start.o kernel/start.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/console.o kernel/console.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/printf.o kernel/printf.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/uart.o kernel/uart.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/kalloc.o kernel/kalloc.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/spinlock.o kernel/spinlock.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/string.o kernel/string.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/main.o kernel/main.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/vm.o kernel/vm.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/proc.o kernel/proc.c
+riscv64-unknown-elf-gcc    -c -o kernel/swtch.o kernel/swtch.S
+riscv64-unknown-elf-gcc    -c -o kernel/trampoline.o kernel/trampoline.S
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/trap.o kernel/trap.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/syscall.o kernel/syscall.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/sysproc.o kernel/sysproc.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/bio.o kernel/bio.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/fs.o kernel/fs.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/log.o kernel/log.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/sleeplock.o kernel/sleeplock.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/file.o kernel/file.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/pipe.o kernel/pipe.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/exec.o kernel/exec.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/sysfile.o kernel/sysfile.c
+riscv64-unknown-elf-gcc    -c -o kernel/kernelvec.o kernel/kernelvec.S
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/plic.o kernel/plic.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/virtio_disk.o kernel/virtio_disk.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/buddy.o kernel/buddy.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o kernel/list.o kernel/list.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie -nostdinc -I. -Ikernel -c user/initcode.S -o user/initcode.o
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e start -Ttext 0 -o user/initcode.out user/initcode.o
+riscv64-unknown-elf-objcopy -S -O binary user/initcode.out user/initcode
+riscv64-unknown-elf-objdump -S user/initcode.o > user/initcode.asm
+riscv64-unknown-elf-ld -z max-page-size=4096 -T kernel/kernel.ld -o kernel/kernel kernel/entry.o kernel/start.o kernel/console.o kernel/printf.o kernel/uart.o kernel/kalloc.o kernel/spinlock.o kernel/string.o kernel/main.o kernel/vm.o kernel/proc.o kernel/swtch.o kernel/trampoline.o kernel/trap.o kernel/syscall.o kernel/sysproc.o kernel/bio.o kernel/fs.o kernel/log.o kernel/sleeplock.o kernel/file.o kernel/pipe.o kernel/exec.o kernel/sysfile.o kernel/kernelvec.o kernel/plic.o kernel/virtio_disk.o kernel/buddy.o kernel/list.o 
+riscv64-unknown-elf-objdump -S kernel/kernel > kernel/kernel.asm
+riscv64-unknown-elf-objdump -t kernel/kernel | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > kernel/kernel.sym
+gcc -Werror -Wall -I. -o mkfs/mkfs mkfs/mkfs.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/ulib.o user/ulib.c
+perl user/usys.pl > user/usys.S
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie -c -o user/usys.o user/usys.S
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/printf.o user/printf.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/umalloc.o user/umalloc.c
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/cat.o user/cat.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_cat user/cat.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_cat > user/cat.asm
+riscv64-unknown-elf-objdump -t user/_cat | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/cat.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/echo.o user/echo.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_echo user/echo.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_echo > user/echo.asm
+riscv64-unknown-elf-objdump -t user/_echo | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/echo.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/forktest.o user/forktest.c
+# forktest has less library code linked in - needs to be small
+# in order to be able to max out the proc table.
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_forktest user/forktest.o user/ulib.o user/usys.o
+riscv64-unknown-elf-objdump -S user/_forktest > user/forktest.asm
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/grep.o user/grep.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_grep user/grep.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_grep > user/grep.asm
+riscv64-unknown-elf-objdump -t user/_grep | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/grep.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/init.o user/init.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_init user/init.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_init > user/init.asm
+riscv64-unknown-elf-objdump -t user/_init | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/init.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/kill.o user/kill.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_kill user/kill.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_kill > user/kill.asm
+riscv64-unknown-elf-objdump -t user/_kill | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/kill.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/ln.o user/ln.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_ln user/ln.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_ln > user/ln.asm
+riscv64-unknown-elf-objdump -t user/_ln | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/ln.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/ls.o user/ls.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_ls user/ls.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_ls > user/ls.asm
+riscv64-unknown-elf-objdump -t user/_ls | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/ls.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/mkdir.o user/mkdir.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_mkdir user/mkdir.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_mkdir > user/mkdir.asm
+riscv64-unknown-elf-objdump -t user/_mkdir | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/mkdir.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/rm.o user/rm.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_rm user/rm.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_rm > user/rm.asm
+riscv64-unknown-elf-objdump -t user/_rm | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/rm.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/sh.o user/sh.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_sh user/sh.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_sh > user/sh.asm
+riscv64-unknown-elf-objdump -t user/_sh | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/sh.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/stressfs.o user/stressfs.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_stressfs user/stressfs.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_stressfs > user/stressfs.asm
+riscv64-unknown-elf-objdump -t user/_stressfs | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/stressfs.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/usertests.o user/usertests.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_usertests user/usertests.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_usertests > user/usertests.asm
+riscv64-unknown-elf-objdump -t user/_usertests | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/usertests.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/wc.o user/wc.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_wc user/wc.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_wc > user/wc.asm
+riscv64-unknown-elf-objdump -t user/_wc | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/wc.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/zombie.o user/zombie.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_zombie user/zombie.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_zombie > user/zombie.asm
+riscv64-unknown-elf-objdump -t user/_zombie | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/zombie.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/cowtest.o user/cowtest.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_cowtest user/cowtest.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_cowtest > user/cowtest.asm
+riscv64-unknown-elf-objdump -t user/_cowtest | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/cowtest.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/uthread.o user/uthread.c
+riscv64-unknown-elf-gcc    -c -o user/uthread_switch.o user/uthread_switch.S
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_uthread user/uthread.o user/uthread_switch.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_uthread > user/uthread.asm
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/call.o user/call.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_call user/call.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_call > user/call.asm
+riscv64-unknown-elf-objdump -t user/_call | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/call.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/testsh.o user/testsh.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_testsh user/testsh.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_testsh > user/testsh.asm
+riscv64-unknown-elf-objdump -t user/_testsh | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/testsh.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/kalloctest.o user/kalloctest.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_kalloctest user/kalloctest.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_kalloctest > user/kalloctest.asm
+riscv64-unknown-elf-objdump -t user/_kalloctest | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/kalloctest.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/bcachetest.o user/bcachetest.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_bcachetest user/bcachetest.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_bcachetest > user/bcachetest.asm
+riscv64-unknown-elf-objdump -t user/_bcachetest | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/bcachetest.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/mounttest.o user/mounttest.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_mounttest user/mounttest.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_mounttest > user/mounttest.asm
+riscv64-unknown-elf-objdump -t user/_mounttest | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/mounttest.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/crashtest.o user/crashtest.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_crashtest user/crashtest.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_crashtest > user/crashtest.asm
+riscv64-unknown-elf-objdump -t user/_crashtest | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/crashtest.sym
+riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -fno-pie -no-pie   -c -o user/alloctest.o user/alloctest.c
+riscv64-unknown-elf-ld -z max-page-size=4096 -N -e main -Ttext 0 -o user/_alloctest user/alloctest.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
+riscv64-unknown-elf-objdump -S user/_alloctest > user/alloctest.asm
+riscv64-unknown-elf-objdump -t user/_alloctest | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > user/alloctest.sym
+mkfs/mkfs fs.img README user/xargstest.sh user/_cat user/_echo user/_forktest user/_grep user/_init user/_kill user/_ln user/_ls user/_mkdir user/_rm user/_sh user/_stressfs user/_usertests user/_wc user/_zombie user/_cowtest user/_uthread user/_call user/_testsh user/_kalloctest user/_bcachetest user/_mounttest user/_crashtest user/_alloctest 
+nmeta 46 (boot, super, log blocks 30 inode blocks 13, bitmap blocks 1) blocks 1954 total 2000
+balloc: first 754 blocks have been allocated
+balloc: write bitmap block at sector 45
+qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 3G -smp 3 -nographic -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
+
+xv6 kernel is booting
+
+bd: memory sz is 4194304 bytes; allocate an size array of length 19
+bd: 98928 meta bytes for managing 4194304 bytes of memory
+bd: 0x0 bytes unavailable
+Init free lists with addr 0x0000000087c18270 and end 0x0000000088000000
+printing...: k = 0
+size 0 (blksz 16 nblk 262144): free list: 
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list: 
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list: 
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list: 
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list: 
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list: 
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 0, left block freed: 16
+free level k = 0, right block freed: 0
+printing...: k = 1
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list: 
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list: 
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list: 
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list: 
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list: 
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 1, left block freed: 0
+free level k = 1, right block freed: 0
+printing...: k = 2
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list: 
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list: 
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list: 
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list: 
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list: 
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 2, left block freed: 0
+free level k = 2, right block freed: 0
+printing...: k = 3
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list: 
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list: 
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list: 
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list: 
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list: 
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 3, left block freed: 128
+free level k = 3, right block freed: 0
+printing...: k = 4
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list: 
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list: 
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list: 
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list: 
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 4, left block freed: 256
+free level k = 4, right block freed: 0
+printing...: k = 5
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list: 
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list: 
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list: 
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 5, left block freed: 0
+free level k = 5, right block freed: 0
+printing...: k = 6
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list: 
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list: 
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list: 
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 6, left block freed: 1024
+free level k = 6, right block freed: 0
+printing...: k = 7
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list: 
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list: 
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 7, left block freed: 2048
+free level k = 7, right block freed: 0
+printing...: k = 8
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list: 
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 8, left block freed: 4096
+free level k = 8, right block freed: 0
+printing...: k = 9
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list:  0x0000000087c19000
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list: 
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 9, left block freed: 8192
+free level k = 9, right block freed: 0
+printing...: k = 10
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list:  0x0000000087c19000
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list:  0x0000000087c1a000
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list: 
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 10, left block freed: 16384
+free level k = 10, right block freed: 0
+printing...: k = 11
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list:  0x0000000087c19000
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list:  0x0000000087c1a000
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list:  0x0000000087c1c000
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 11, left block freed: 0
+free level k = 11, right block freed: 0
+printing...: k = 12
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list:  0x0000000087c19000
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list:  0x0000000087c1a000
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list:  0x0000000087c1c000
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list: 
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 12, left block freed: 0
+free level k = 12, right block freed: 65536
+printing...: k = 13
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list:  0x0000000087c19000
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list:  0x0000000087c1a000
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list:  0x0000000087c1c000
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list:  0x0000000088010000
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 13, left block freed: 131072
+free level k = 13, right block freed: 131072
+printing...: k = 14
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list:  0x0000000087c19000
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list:  0x0000000087c1a000
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list:  0x0000000087c1c000
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list:  0x0000000088010000
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list:  0x0000000088020000 0x0000000087c20000
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 14, left block freed: 262144
+free level k = 14, right block freed: 262144
+printing...: k = 15
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list:  0x0000000087c19000
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list:  0x0000000087c1a000
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list:  0x0000000087c1c000
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list:  0x0000000088010000
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list:  0x0000000088020000 0x0000000087c20000
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list:  0x0000000088040000 0x0000000087c40000
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 15, left block freed: 524288
+free level k = 15, right block freed: 524288
+printing...: k = 16
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list:  0x0000000087c19000
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list:  0x0000000087c1a000
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list:  0x0000000087c1c000
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list:  0x0000000088010000
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list:  0x0000000088020000 0x0000000087c20000
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list:  0x0000000088040000 0x0000000087c40000
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list:  0x0000000088080000 0x0000000087c80000
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 16, left block freed: 1048576
+free level k = 16, right block freed: 0
+printing...: k = 17
+size 0 (blksz 16 nblk 262144): free list:  0x0000000087c18270
+  alloc: [0, 6183)
+size 1 (blksz 32 nblk 131072): free list: 
+  alloc: [0, 3092)
+  split: [0, 3092)
+size 2 (blksz 64 nblk 65536): free list: 
+  alloc: [0, 1546)
+  split: [0, 1546)
+size 3 (blksz 128 nblk 32768): free list:  0x0000000087c18280
+  alloc: [0, 773)
+  split: [0, 773)
+size 4 (blksz 256 nblk 16384): free list:  0x0000000087c18300
+  alloc: [0, 387)
+  split: [0, 387)
+size 5 (blksz 512 nblk 8192): free list: 
+  alloc: [0, 194)
+  split: [0, 194)
+size 6 (blksz 1024 nblk 4096): free list:  0x0000000087c18400
+  alloc: [0, 97)
+  split: [0, 97)
+size 7 (blksz 2048 nblk 2048): free list:  0x0000000087c18800
+  alloc: [0, 49)
+  split: [0, 49)
+size 8 (blksz 4096 nblk 1024): free list:  0x0000000087c19000
+  alloc: [0, 25)
+  split: [0, 25)
+size 9 (blksz 8192 nblk 512): free list:  0x0000000087c1a000
+  alloc: [0, 13)
+  split: [0, 13)
+size 10 (blksz 16384 nblk 256): free list:  0x0000000087c1c000
+  alloc: [0, 7)
+  split: [0, 7)
+size 11 (blksz 32768 nblk 128): free list: 
+  alloc: [0, 4)
+  split: [0, 4)
+size 12 (blksz 65536 nblk 64): free list:  0x0000000088010000
+  alloc: [0, 2)
+  split: [0, 2)
+size 13 (blksz 131072 nblk 32): free list:  0x0000000088020000 0x0000000087c20000
+  alloc: [0, 1)
+  split: [0, 1)
+size 14 (blksz 262144 nblk 16): free list:  0x0000000088040000 0x0000000087c40000
+  alloc: [0, 1)
+  split: [0, 1)
+size 15 (blksz 524288 nblk 8): free list:  0x0000000088080000 0x0000000087c80000
+  alloc: [0, 1)
+  split: [0, 1)
+size 16 (blksz 1048576 nblk 4): free list:  0x0000000087d00000
+  alloc: [0, 1)
+  split: [0, 1)
+size 17 (blksz 2097152 nblk 2): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+size 18 (blksz 4194304 nblk 1): free list: 
+  alloc: [0, 1)
+  split: [0, 1)
+free level k = 17, left block freed: 2097152
+free level k = 17, right block freed: 0
+free 5078416 4095376
+panic: bd_init: free mem

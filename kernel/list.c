@@ -48,9 +48,11 @@ lst_push(struct list *lst, void *p)
 
 void
 lst_print(struct list *lst)
-{
+{ 
+  int cnt = 0;
   for (struct list *p = lst->next; p != lst; p = p->next) {
-    printf(" %p", p);
+    // printf(" %p ->", p);
+    cnt++;
   }
-  printf("\n");
+  printf("Elements in list: %d\n", cnt);
 }

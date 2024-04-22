@@ -29,8 +29,11 @@ OBJS = \
   $K/kernelvec.o \
   $K/plic.o \
   $K/virtio_disk.o \
+  $K/getprocs.o \
   $K/buddy.o \
-  $K/list.o
+  $K/list.o\
+  $K/demo.o\
+  
 
 # riscv64-unknown-elf- or riscv64-linux-gnu-
 # perhaps in /opt/riscv/bin
@@ -77,6 +80,13 @@ $K/kernel: $(OBJS) $K/kernel.ld $U/initcode
 	$(LD) $(LDFLAGS) -T $K/kernel.ld -o $K/kernel $(OBJS) 
 	$(OBJDUMP) -S $K/kernel > $K/kernel.asm
 	$(OBJDUMP) -t $K/kernel | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > $K/kernel.sym
+
+# $K/_getprocs: $K/getprocs.o $(ULIB)
+#     $(LD) $(LDFLAGS) -N -e main -Ttext 0 -o $@ $^
+#     $(OBJDUMP) -S $@ > $*.asm
+#     $(OBJDUMP) -t $@ | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > $*.sym
+
+
 
 $U/initcode: $U/initcode.S
 	$(CC) $(CFLAGS) -nostdinc -I. -Ikernel -c $U/initcode.S -o $U/initcode.o
@@ -144,6 +154,9 @@ UPROGS=\
 	$U/_mounttest\
 	$U/_crashtest\
 	$U/_alloctest\
+	$U/_getprocs
+
+
 
 fs.img: mkfs/mkfs README user/xargstest.sh $(UPROGS)
 	mkfs/mkfs fs.img README user/xargstest.sh $(UPROGS)

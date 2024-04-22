@@ -107,6 +107,8 @@ extern uint64 sys_write(void);
 extern uint64 sys_uptime(void);
 extern uint64 sys_ntas(void);
 extern uint64 sys_crash(void);
+extern uint64 sys_getprocs(void);
+extern uint64 sys_demo(void);
 
 static uint64 (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -132,6 +134,8 @@ static uint64 (*syscalls[])(void) = {
 [SYS_close]   sys_close,
 [SYS_ntas]    sys_ntas,
 [SYS_crash]   sys_crash,
+[SYS_getprocs]   sys_getprocs,
+[SYS_demo]  sys_demo,
 };
 
 void
@@ -141,7 +145,9 @@ syscall(void)
   struct proc *p = myproc();
 
   num = p->tf->a7;
-  if(num > 0 && num < NELEM(syscalls) && syscalls[num]) {
+  if(num == SYS_getprocs) p->tf->a0 = sys_getprocs();
+  else if(num == SYS_demo) p->tf->a0 = sys_demo();
+  else if(num > 0 && num < NELEM(syscalls) && syscalls[num]) {
     p->tf->a0 = syscalls[num]();
   } else {
     printf("%d %s: unknown sys call %d\n",
