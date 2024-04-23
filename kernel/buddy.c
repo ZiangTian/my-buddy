@@ -39,21 +39,21 @@ static void *bd_base;   // start address of memory managed by the buddy allocato
 static struct spinlock lock;
 
 // Return 1 if bit at position index in array is set to 1
-int bit_isset(char *array, int index) {
+int isset(char *array, int index) {
   char b = array[index/8];
   char m = (1 << (index % 8));
   return (b & m) == m;
 }
 
 // Set bit at position index in array to 1
-void bit_set(char *array, int index) {
+void set(char *array, int index) {
   char b = array[index/8];
   char m = (1 << (index % 8));
   array[index/8] = (b | m);
 }
 
 // Clear bit at position index in array
-void bit_clear(char *array, int index) {
+void unset(char *array, int index) {
   char b = array[index/8];
   char m = (1 << (index % 8));
   array[index/8] = (b & ~m);
@@ -62,7 +62,7 @@ void bit_clear(char *array, int index) {
 
 // What is the first k such that 2^k >= n?
 int
-firstk(uint64 n) {
+get_level(uint64 n) {
   int k = 0;
   uint64 size = LEAF_SIZE;
 
@@ -100,11 +100,11 @@ void print_level(int level){
     ** idx idx idx
     **  S   A   F
     */
-    if ((level != 0) && bit_isset(bd_sizes[level].split, i)) {
+    if ((level != 0) && isset(bd_sizes[level].split, i)) {
       printf("S ");
       splits++;
     }
-    else if (bit_isset(bd_sizes[level].alloc, i)) {
+    else if (isset(bd_sizes[level].alloc, i)) {
       printf("A ");
       alls++;
     }
@@ -132,8 +132,8 @@ void set_blocks_below_as_allocated(int level, char* p){
     return;
   }
   int current_id = blk_index(level, p);
-  bit_set(bd_sizes[level-1].alloc, LEFT_CHILD(current_id));
-  bit_set(bd_sizes[level-1].alloc, RIGHT_CHILD(current_id));
+  set(bd_sizes[level-1].alloc, LEFT_CHILD(current_id));
+  set(bd_sizes[level-1].alloc, RIGHT_CHILD(current_id));
   set_blocks_below_as_allocated(level-1, addr(level-1, LEFT_CHILD(current_id)));
   set_blocks_below_as_allocated(level-1, addr(level-1, RIGHT_CHILD(current_id)));
 }
@@ -143,7 +143,7 @@ void set_blocks_above_as_split(int level, char* p){
     return;
   }
   int current_id = blk_index(level, p);
-  bit_set(bd_sizes[level+1].split, PARENT(current_id));
+  set(bd_sizes[level+1].split, PARENT(current_id));
   set_blocks_above_as_split(level+1, addr(level+1, PARENT(current_id)));
 }
 
@@ -152,8 +152,8 @@ void unset_blocks_below_as_allocated(int level, char* p){
     return;
   }
   int current_id = blk_index(level, p);
-  bit_clear(bd_sizes[level-1].alloc, LEFT_CHILD(current_id));
-  bit_clear(bd_sizes[level-1].alloc, RIGHT_CHILD(current_id));
+  unset(bd_sizes[level-1].alloc, LEFT_CHILD(current_id));
+  unset(bd_sizes[level-1].alloc, RIGHT_CHILD(current_id));
   unset_blocks_below_as_allocated(level-1, addr(level-1, LEFT_CHILD(current_id)));
   unset_blocks_below_as_allocated(level-1, addr(level-1, RIGHT_CHILD(current_id)));
 }
@@ -170,7 +170,7 @@ bd_malloc(uint64 nbytes)
   printf("lock acquired\n");
 
   // Find a free block >= nbytes, starting with smallest k possible
-  level = firstk(nbytes);
+  level = get_level(nbytes);
   printf("The smallest k possible is %d\n", level);
   unsigned id = 0;
 
@@ -181,14 +181,14 @@ bd_malloc(uint64 nbytes)
   } else if (level == 0) {
       for (; id < NBLK(level); id++) {
         // printf("Checking the %dth block at level %d\n", id, level);
-        if (!bit_isset(bd_sizes[level].alloc, id)) {
+        if (!isset(bd_sizes[level].alloc, id)) {
           break;
         }
       }
   } else{
       for (; id < NBLK(level); id++) {
         // printf("Checking the %dth block at level %d\n", id, level);
-        if (!bit_isset(bd_sizes[level].alloc, id) && !bit_isset(bd_sizes[level].split, id)) {
+        if (!isset(bd_sizes[level].alloc, id) && !isset(bd_sizes[level].split, id)) {
           break;
         }
       }
@@ -204,14 +204,13 @@ bd_malloc(uint64 nbytes)
   char *p = addr(level, id);
 
   printf("We found a free block at level %d, it's the %dth out of %d blocks on that level, it's %d bytes.\n", level, id, NBLK(level) ,BLK_SIZE(level));
-  bit_set(bd_sizes[level].alloc, id);
+  set(bd_sizes[level].alloc, id);
 
   // Mark all the blocks below this level as allocated
   set_blocks_below_as_allocated(level, p);
 
   // Mark all the blocks above as split
   set_blocks_above_as_split(level, p);
-  // bd_show_memory();
 
   release(&lock);
   printf("lock released\n");
@@ -223,7 +222,7 @@ bd_malloc(uint64 nbytes)
 int
 size(char *p) {
   for (int k = 0; k < nsizes; k++) {
-    if(bit_isset(bd_sizes[k+1].split, blk_index(k+1, p))) { // 如果高层split了，说明这个block是k的
+    if(isset(bd_sizes[k+1].split, blk_index(k+1, p))) { // 如果高层split了，说明这个block是k的
       return k;
     }
   }
@@ -249,17 +248,17 @@ bd_free(void *p) {
   for (k = level_free; k < MAXENTRY; k++) {
     int bi = blk_index(k, p);
     int buddy = (bi % 2 == 0) ? bi+1 : bi-1;
-    bit_clear(bd_sizes[k].alloc, bi);  // free p at size k
+    unset(bd_sizes[k].alloc, bi);  // free p at size k
     printf("Freeing at level %d. Unset the alloc bit for the %dth block\n", k, bi);
 
     if (k == 0){
-      if (bit_isset(bd_sizes[k].alloc, buddy)) {  // is buddy allocated?
+      if (isset(bd_sizes[k].alloc, buddy)) {  // is buddy allocated?
         printf("Buddy is not free, we can't merge, freeing terminated.\n");
         break;   // break out of loop
       }
     }
     else{
-      if (bit_isset(bd_sizes[k].alloc, buddy) || bit_isset(bd_sizes[k].split, buddy)) {  // is buddy allocated?
+      if (isset(bd_sizes[k].alloc, buddy) || isset(bd_sizes[k].split, buddy)) {  // is buddy allocated?
         printf("Buddy is not free, we can't merge, freeing terminated.\n");
         break;   // break out of loop
       }
@@ -279,7 +278,7 @@ bd_free(void *p) {
 
     // unset all the blocks below this level as allocated, do later
     // unset the block above as split
-    bit_clear(bd_sizes[k+1].split, blk_index(k+1, p));
+    unset(bd_sizes[k+1].split, blk_index(k+1, p));
 
     printf("Unset the split bit for the %dth block at level %d\n", blk_index(k+1, p), k+1);
   }
@@ -323,9 +322,9 @@ bd_mark(void *start, void *stop)
     for(; bi < bj; bi++) {
       if(k > 0) {
         // if a block is allocated at size k, mark it as split too.
-        bit_set(bd_sizes[k].split, bi);
+        set(bd_sizes[k].split, bi);
       }
-      bit_set(bd_sizes[k].alloc, bi);
+      set(bd_sizes[k].alloc, bi);
     }
   }
 }
@@ -375,7 +374,7 @@ bd_init(void *base, void *end) {
   p += sizeof(Sz_info) * nsizes;
   memset(bd_sizes, 0, sizeof(Sz_info) * nsizes);
 
-  // initialize free list and allocate the alloc array for each size k
+  // initialize alloc array for each size k
   for (int k = 0; k < nsizes; k++) {
     sz = sizeof(char)* ROUNDUP(NBLK(k), 8)/8;
     bd_sizes[k].alloc = p;
@@ -393,9 +392,7 @@ bd_init(void *base, void *end) {
   }
   p = (char *) ROUNDUP((uint64) p, LEAF_SIZE);
 
-  // done allocating; mark the memory range [base, p) as allocated, so
-  // that buddy will not hand out that memory.
-  // int meta = 
+  // mark our data management part as allocated.
   bd_mark_data_structures(p);
   
   // mark the unavailable memory range [end, HEAP_SIZE) as allocated,
@@ -403,15 +400,8 @@ bd_init(void *base, void *end) {
   int unavailable = bd_mark_unavailable(end, p);
   void *bd_end = bd_base+BLK_SIZE(MAXENTRY)-unavailable;
   
-
   printf("Actual usable memory: %d\n", (uint64)bd_end - (uint64)p);
-
 
   print_level(10);
 
 }
-
-
-
-
-
