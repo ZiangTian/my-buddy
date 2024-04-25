@@ -93,26 +93,18 @@ kalloc(void)
 
 /*buddy*/
 void
-buddy_init()
+buddy_init() // buddy的初始化函数
 {
-  // char *p = (char *) PGROUNDUP((uint64) end);
-  // bd_init(p, (void*)PHYSTOP);
   bd_init((void*)(PHYSTOP-8*1024*1024), (void*)PHYSTOP);
 }
 
-// Free the page of physical memory pointed at by v,
-// which normally should have been returned by a
-// call to kalloc().  (The exception is when
-// initializing the allocator; see kinit above.)
+
 void
 buddy_free(void *pa)
 {
   bd_free(pa);
 }
 
-// Allocate one 4096-byte page of physical memory.
-// Returns a pointer that the kernel can use.
-// Returns 0 if the memory cannot be allocated.
 void *
 buddy_alloc(uint64 nbytes)
 {

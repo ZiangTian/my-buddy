@@ -233,6 +233,11 @@ size(char *p) {
 // bd_malloc.
 void
 bd_free(void *p) {
+  if (p == 0)
+    return;
+  else if ((uint64)p % LEAF_SIZE != 0)
+    panic("bd_free: not aligned");
+
   void *q;
   int k;
   printf("buddy system: freeing %p\n", p);

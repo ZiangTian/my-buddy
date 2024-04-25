@@ -14,30 +14,31 @@ sys_demo(void)
   // char* p1 = buddy_alloc(2*1024); // 2097152
   // printf("p1: %p\n", p1);
   // char* p2 = buddy_alloc(3*1024);
-  // char* p3 = buddy_alloc(510);
   // buddy_free(p2);
   // buddy_free(p1);
   // buddy_alloc(5*1024*1024);
-  // char* p4 = buddy_alloc(32);
-  //   buddy_free(p1);
-  //   buddy_free(p3);
-  //   buddy_free(p4);
-
 
   // test buddy_alloc
-  char *p1 = buddy_alloc(100);
-  printf("p1: %p\n", p1);
-  char *p2 = buddy_alloc(900);
-  printf("p2: %p\n", p2);
-  char *p3 = buddy_alloc(1000);
-  printf("p3: %p\n", p3);
-  char *p4 = buddy_alloc(1000);
-  printf("p4: %p\n", p4);
+  // char *p1 = buddy_alloc(100);
+  // printf("p1: %p\n", p1);
+  // char *p2 = buddy_alloc(900);
+  // printf("p2: %p\n", p2);
+  // char *p3 = buddy_alloc(1000);
+  // printf("p3: %p\n", p3);
+  // char *p4 = buddy_alloc(1000);
+  // printf("p4: %p\n", p4);
 
+  // buddy_free(p1);
+  // buddy_free(p2);
+  // buddy_free(p3);
+  // buddy_free(p4);
+
+  char* p1 = buddy_alloc(4*1024*1024);
+  printf("p1: %p\n", p1);
+  char* p2 = buddy_alloc(4*1024*1024);
+  printf("p2: %p\n", p2);
   buddy_free(p1);
   buddy_free(p2);
-  buddy_free(p3);
-  buddy_free(p4);
 
   // printf("alloc 1\n\n");
   // char* p1 = buddy_alloc(8);

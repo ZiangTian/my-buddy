@@ -11,7 +11,7 @@
 
 struct cpu cpus[NCPU];
 
-struct proc proc[NPROC];
+struct proc proc[NPROC];  // 进程表
 
 struct proc *initproc;
 

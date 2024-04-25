@@ -132,6 +132,13 @@ int get_block_size(char *p){
 
 // free memory pointed to by p, and combine the buddy blocks if possible
 void bd_free(void *p){
+
+    // if p == 0, return
+    if (p == 0){
+        return;
+    } else if((uint64)p % LEAF_SIZE != 0){
+        panic("bd_free: not aligned");
+    }
     
     acquire(&lock);
     int k;
